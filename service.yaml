@@ -1,0 +1,14 @@
+# k8s/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: shikshan-app-service
+spec:
+  type: NodePort # Exposes the service on each Node's IP at a static port.
+  selector:
+    app: shikshan-app # This must match the 'app' label in your Deployment
+  ports:
+    - protocol: TCP
+      port: 8080       # Port inside the cluster
+      targetPort: 8080   # Port on the container
+      # nodePort will be assigned automatically by Kubernetes (usually between 30000-32767)
