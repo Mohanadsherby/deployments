@@ -13,6 +13,10 @@ spec:
       labels:
         app: shikshan-app
     spec:
+      # --- THIS SECTION WAS ADDED ---
+      imagePullSecrets:
+      - name: dockerhub-creds # The name of the secret you will create
+      # ------------------------------
       containers:
       - name: shikshan-container
         image: mohanadsherby/shikshan:IMAGE_TAG_PLACEHOLDER # <-- Jenkins will replace this
